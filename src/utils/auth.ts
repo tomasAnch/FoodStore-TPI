@@ -3,11 +3,7 @@ import type { Rol } from "../types/Rol";
 import { getUSer, removeUser } from "./localStorage";
 import { navigate } from "./navigate";
 
-export const checkAuhtUser = (
-  redireccion1: string,
-  redireccion2: string,
-  rol: Rol
-) => {
+export const checkAuthUser = ( redireccion1: string, redireccion2: string, rol: Rol): void => {
   console.log("comienzo de checkeo");
 
   const user = getUSer();
@@ -17,17 +13,16 @@ export const checkAuhtUser = (
     navigate(redireccion1);
     return;
   } else {
-    console.log("existe pero no tiene el rol necesario");
-
     const parseUser: IUser = JSON.parse(user);
     if (parseUser.role !== rol) {
+      console.log("existe pero no tiene el rol necesario"); // <- cuando el rol no coincide
       navigate(redireccion2);
       return;
     }
   }
 };
 
-export const logout = () => {
+export const logout = (): void => {
   removeUser();
   navigate("/src/pages/auth/login/login.html");
 };

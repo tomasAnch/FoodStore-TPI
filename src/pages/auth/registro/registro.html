@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Food Store - Registro</title>
+    <link rel="stylesheet" href="./registro.css">
 </head>
 
 <body>
-    <h1>Hola desde el registro</h1>
+    <div class="container">
+        <form class="registro-form" id="formRegistro">
+            <h1>Food Store</h1>
+            <h2>Crear cuenta</h2>
+
+            <label for="emailRegistro">Email</label>
+            <input 
+                type="email" 
+                name="emailRegistro" 
+                id="emailRegistro" 
+                autocomplete="off"
+                placeholder="tuemail@ejemplo.com" 
+                required
+            >
+
+            <label for="passwordRegistro">Contraseña</label>
+            <input 
+                type="password" 
+                name="password" 
+                id="passwordRegistro" 
+                autocomplete="off"
+                placeholder="Mínimo 8 caracteres" 
+                minlength="8" 
+                required
+            >
+
+            <button type="submit">REGISTRATE</button>
+
+            <p class="login-link">¿Ya tenés cuenta? <a href="../login/login.html">Iniciá sesión</a></p>
+        </form>
+    </div>
+
+    <script type="module" src="./registro.ts"></script>
 </body>
 
 </html>

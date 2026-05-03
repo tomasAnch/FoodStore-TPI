@@ -33,7 +33,7 @@ src/
 │   └── Rol.ts                ← type Rol
 └── utils/
     ├── auth.ts               ← lógica de autenticación
-    ├── cart.ts               ← lógica del carrito (localStorage)
+    ├── cartLocalStorage.ts               ← lógica del carrito (localStorage)
     ├── localStorage.ts       ← manejo de usuarios en localStorage
     └── navigate.ts           ← función de navegación
 ```

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Store — Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./home.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar__brand">
+      <span class="navbar__logo">🍕</span>
+      <span class="navbar__title">Food<strong>Store</strong></span>
+    </div>
+
+    <div class="navbar__search">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        id="searchInput"
+        class="navbar__search-input"
+        placeholder="Buscar productos..."
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="navbar__actions">
+      <a href="../cart/cart.html" class="cart-btn">
+        <span class="cart-btn__icon">🛒</span>
+        <span class="cart-btn__label">Mi carrito</span>
+        <span class="cart-btn__badge" id="cartBadge">0</span>
+      </a>
+      <button id="logoutButton" class="logout-btn">Salir</button>
+    </div>
+  </header>
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar__section">
+        <h3 class="sidebar__heading">Categorías</h3>
+        <ul class="category-list" id="categoryList">
+          <li class="category-item category-item--active" data-id="all">
+            Todos los productos
+          </li>
+          <!-- Se renderizan dinámicamente -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+
+      <div class="main__header">
+        <div>
+          <h1 class="main__title" id="catalogTitle">Todos los productos</h1>
+          <p class="main__subtitle" id="catalogSubtitle">Mostrando todos los productos disponibles</p>
+        </div>
+      </div>
+
+      <!-- GRID DE PRODUCTOS -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Se renderizan dinámicamente -->
+      </div>
+
+      <!-- ESTADO VACÍO -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <span class="empty-state__icon">🍽️</span>
+        <h3 class="empty-state__title">Sin resultados</h3>
+        <p class="empty-state__text">No encontramos productos que coincidan con tu búsqueda.</p>
+        <button class="empty-state__btn" id="clearSearchBtn">Ver todos</button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- TOAST DE CONFIRMACIÓN -->
+  <div class="toast" id="toast">
+    <span class="toast__icon">✅</span>
+    <span class="toast__msg" id="toastMsg">Producto agregado al carrito</span>
+  </div>
+
+  <script type="module" src="./home.ts"></script>
+</body>
+
+</html>

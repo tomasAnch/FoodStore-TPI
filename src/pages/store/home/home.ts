@@ -28,7 +28,7 @@ const renderProducts = (products: Product[]): void => {
         card.className = "product-card";
         card.innerHTML = `
             <div class="product-card__img-wrap">
-                <span class="product-card__img-placeholder">🍕</span>
+                <img class="product-card__img" src="/images/${product.imagen}" alt="${product.nombre}" />
             </div>
             <div class="product-card__body">
                 <span class="product-card__category">${product.categorias[0].nombre}</span>
@@ -81,6 +81,8 @@ const renderCategories = (): void => {
         li.dataset.id = String(category.id);
 
         li.addEventListener("click", () => {
+            document.querySelectorAll(".category-item").forEach((el) => el.classList.remove("category-item--active"));
+            li.classList.add("category-item--active");
             const filtered = PRODUCTS.filter(
                 (p) => p.categorias[0].nombre === category.nombre
             );
@@ -92,6 +94,8 @@ const renderCategories = (): void => {
 
     const todosBtn = document.querySelector('[data-id="all"]') as HTMLLIElement;
     todosBtn.addEventListener("click", () => {
+        document.querySelectorAll(".category-item").forEach((el) => el.classList.remove("category-item--active"));
+        todosBtn.classList.add("category-item--active");
         renderProducts(PRODUCTS);
     });
 
@@ -100,8 +104,7 @@ const renderCategories = (): void => {
 const buscador = (): void => {
     const searchInput = document.getElementById("searchInput") as HTMLInputElement;
 
-    searchInput.addEventListener('input', (e) => {
-        e.preventDefault();
+    searchInput.addEventListener('input', () => {
 
         const query = searchInput.value.toLowerCase();
         const filtered = PRODUCTS.filter((p) => {

@@ -5,7 +5,7 @@ export const saveUser = (user: IUser): void => {
   localStorage.setItem("userData", parseUser);
 };
 
-export const getUSer = (): string | null => {
+export const getUser = (): string | null => {
   return localStorage.getItem("userData");
 };
 

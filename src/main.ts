@@ -1,10 +1,10 @@
-import { getUSer } from "./utils/localStorage";
+import { getUser } from "./utils/localStorage";
 import { navigate } from "./utils/navigate";
 import type { IUser } from './types/IUser';
 
 const initPage = () => {
 
-    const user = getUSer();
+    const user = getUser();
 
     if (!user) {
         navigate('/src/pages/auth/login/login.html')

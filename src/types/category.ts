@@ -1,4 +1,4 @@
-export interface ICategory {
+export interface ICategoria {
     id: number;
     eliminado: boolean;
     createdAt: string;
